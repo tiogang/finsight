@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { LayoutDashboard, TrendingUp, Search, FileText, Bell, Star, Eye, Settings, Brain, BarChart2 } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, Search, FileText, Bell, Star, Eye, Settings, Brain, BarChart2, BookOpen } from 'lucide-react'
 import Metrics from './components/Metrics'
 import Charts from './components/Charts'
 import StockTable from './components/StockTable'
@@ -10,6 +10,7 @@ import Marches from './components/Marches'
 import Analyser from './components/Analyser'
 import Landing from './pages/Landing'
 import Comparaison from './components/Comparaison'
+import Glossaire from './components/Glossaire'
 import './App.css'
 
 const navItems = [
@@ -17,6 +18,7 @@ const navItems = [
   { icon: TrendingUp, label: 'Marchés', section: null },
   { icon: Search, label: 'Analyser', section: null },
   { icon: BarChart2, label: 'Comparer', section: null },
+  { icon: BookOpen, label: 'Glossaire', section: null },
   { icon: FileText, label: 'Rapports IA', section: null },
   { icon: Bell, label: 'Alertes', section: null },
   { icon: Star, label: 'Favoris', section: 'Portefeuille' },
@@ -120,6 +122,8 @@ return (
           <Analyser />
         ) : active === 'Comparer' ? (
           <Comparaison />
+        ) : active === 'Glossaire' ? (
+          <Glossaire />
         ) : (
           <>
             <h2 style={{ color: '#1a1d2e', marginBottom: '1.5rem', fontWeight: '500' }}>
