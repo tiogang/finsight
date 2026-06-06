@@ -1,4 +1,4 @@
-import { ArrowLeft, TrendingUp, TrendingDown, Brain } from 'lucide-react'
+import { ArrowLeft, TrendingUp, TrendingDown, Brain, Shield } from 'lucide-react'
 import { RadarChart, Radar, PolarGrid, PolarAngleAxis, ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts'
 
 const stocksData = {
@@ -18,7 +18,13 @@ const stocksData = {
       { year: '2019', ca: 122 }, { year: '2020', ca: 129 },
       { year: '2021', ca: 138 }, { year: '2022', ca: 148 },
       { year: '2023', ca: 155 }, { year: '2024', ca: 160 },
+    ],
+    resilience: [
+    { periode: 'Pré-crise', years: '2018–2019', ca: '114 MDT → 122 MDT', marge: '27.8% → 27.1%', tendance: 'stable', note: 'Croissance régulière, marges solides. Position dominante confirmée.' },
+    { periode: 'Période de crise', years: '2020–2021', ca: '122 MDT → 129 MDT', marge: '28.3% → 27.8%', tendance: 'positif', note: 'Seule société à croître pendant la crise. Secteur vétérinaire anti-cyclique.' },
+    { periode: 'Reprise', years: '2022–2024', ca: '148 MDT → 160 MDT', marge: '28.9% → 28.4%', tendance: 'positif', note: 'Croissance soutenue, marges stables. Confirmation du profil défensif.' },
     ]
+
   },
   SOTETEL: {
     name: 'SOTETEL', market: 'BVMT', sector: 'Génie civil', rec: 'CONSERVER',
@@ -36,6 +42,11 @@ const stocksData = {
       { year: '2019', ca: 50 }, { year: '2020', ca: 34 },
       { year: '2021', ca: 41 }, { year: '2022', ca: 46 },
       { year: '2023', ca: 50 }, { year: '2024', ca: 53 },
+    ],
+    resilience: [
+    { periode: 'Pré-crise', years: '2018–2019', ca: '46 MDT → 50 MDT', marge: '1.1% → 0.8%', tendance: 'stable', note: 'Activité stable liée aux marchés publics. Marges déjà comprimées.' },
+    { periode: 'Période de crise', years: '2020–2021', ca: '50 MDT → 34 MDT', marge: '0.8% → 0.4%', tendance: 'negatif', note: 'Choc le plus violent (–32%). Arrêt total des chantiers publics en 2020.' },
+    { periode: 'Reprise', years: '2022–2024', ca: '41 MDT → 53 MDT', marge: '0.6% → 0.7%', tendance: 'positif', note: 'Forte reprise +56% grâce aux infrastructures publics relancés.' },
     ]
   },
   CELLCOM: {
@@ -54,6 +65,11 @@ const stocksData = {
       { year: '2019', ca: 94 }, { year: '2020', ca: 71 },
       { year: '2021', ca: 78 }, { year: '2022', ca: 83 },
       { year: '2023', ca: 88 }, { year: '2024', ca: 91 },
+    ],
+    resilience: [
+    { periode: 'Pré-crise', years: '2018–2019', ca: '88 MDT → 94 MDT', marge: '0.5% → 0.5%', tendance: 'stable', note: 'Marges chroniquement comprimées avant même la crise.' },
+    { periode: 'Période de crise', years: '2020–2021', ca: '94 MDT → 71 MDT', marge: '0.5% → 0.2%', tendance: 'negatif', note: 'Impact –24%. Dépendance aux importations amplifiée par la crise logistique mondiale.' },
+    { periode: 'Reprise', years: '2022–2024', ca: '78 MDT → 91 MDT', marge: '0.3% → 0.4%', tendance: 'positif', note: 'Reprise partielle. Niveau pré-crise en CA atteint mais marges non restaurées.' },
     ]
   },
   'Dangote Cement': {
@@ -72,6 +88,11 @@ const stocksData = {
       { year: '2019', ca: 1620 }, { year: '2020', ca: 1490 },
       { year: '2021', ca: 1780 }, { year: '2022', ca: 1920 },
       { year: '2023', ca: 2030 }, { year: '2024', ca: 2140 },
+    ],
+    resilience: [
+    { periode: 'Pré-crise', years: '2018–2019', ca: '1 480 → 1 620 MNGN', marge: '17.8% → 18.2%', tendance: 'positif', note: 'Forte croissance portée par les projets d\'infrastructure nigérians.' },
+    { periode: 'Période de crise', years: '2020–2021', ca: '1 620 → 1 490 MNGN', marge: '18.2% → 16.4%', tendance: 'negatif', note: 'Ralentissement modéré. Demande en construction résistante malgré la crise.' },
+    { periode: 'Reprise', years: '2022–2024', ca: '1 780 → 2 140 MNGN', marge: '17.1% → 19.2%', tendance: 'positif', note: 'Reprise forte. Leader incontesté avec expansion dans 10 pays africains.' },
     ]
   },
   Sonatel: {
@@ -90,6 +111,11 @@ const stocksData = {
       { year: '2019', ca: 1180 }, { year: '2020', ca: 1120 },
       { year: '2021', ca: 1210 }, { year: '2022', ca: 1290 },
       { year: '2023', ca: 1350 }, { year: '2024', ca: 1380 },
+    ],
+    resilience: [
+    { periode: 'Pré-crise', years: '2018–2019', ca: '1 080 → 1 180 MXOF', marge: '15.2% → 15.8%', tendance: 'stable', note: 'Croissance régulière. Monopole télécoms en Afrique de l\'Ouest consolidé.' },
+    { periode: 'Période de crise', years: '2020–2021', ca: '1 180 → 1 120 MXOF', marge: '15.8% → 14.2%', tendance: 'negatif', note: 'Légère baisse. Le télétravail a partiellement compensé la chute des appels pro.' },
+    { periode: 'Reprise', years: '2022–2024', ca: '1 210 → 1 380 MXOF', marge: '14.4% → 14.7%', tendance: 'positif', note: 'Reprise stable. Déploiement 4G accéléré dans la zone UEMOA.' },
     ]
   },
 }
@@ -110,6 +136,46 @@ const customTooltip = ({ active, payload, label }) => {
     )
   }
   return null
+}
+
+function ResilienceCrises({ data }) {
+  const config = {
+    positif: { bg: '#f0fdf4', border: '#bbf7d0', color: '#059669', label: '↑ Positif' },
+    stable: { bg: '#fffbeb', border: '#fde68a', color: '#d97706', label: '→ Stable' },
+    negatif: { bg: '#fef2f2', border: '#fecaca', color: '#dc2626', label: '↓ Impact' },
+  }
+
+  return (
+    <div style={{ background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '12px', padding: '1.25rem', marginTop: '12px' }}>
+      <div style={{ fontWeight: '500', color: '#1a1d2e', fontSize: '13px', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <Shield size={14} color="#6b7280" />
+        Résilience aux crises
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px' }}>
+        {data.map(p => {
+          const c = config[p.tendance]
+          return (
+            <div key={p.periode} style={{ background: c.bg, border: `1px solid ${c.border}`, borderRadius: '10px', padding: '1rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                <span style={{ fontSize: '12px', fontWeight: '600', color: '#1a1d2e' }}>{p.periode}</span>
+                <span style={{ fontSize: '10px', fontWeight: '500', color: c.color }}>{c.label}</span>
+              </div>
+              <div style={{ fontSize: '11px', color: '#6b7280', marginBottom: '6px' }}>{p.years}</div>
+              <div style={{ fontSize: '12px', color: '#374151', marginBottom: '4px' }}>
+                CA : <strong>{p.ca}</strong>
+              </div>
+              <div style={{ fontSize: '12px', color: '#374151', marginBottom: '8px' }}>
+                Marge : <strong>{p.marge}</strong>
+              </div>
+              <div style={{ fontSize: '11px', color: '#6b7280', lineHeight: '1.5', borderTop: `1px solid ${c.border}`, paddingTop: '8px' }}>
+                {p.note}
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
 }
 
 export default function StockDetail({ name, onBack }) {
@@ -192,6 +258,9 @@ export default function StockDetail({ name, onBack }) {
           {stock.analyse}
         </div>
       </div>
+
+      <ResilienceCrises data={stock.resilience} />
+
     </div>
   )
 }
