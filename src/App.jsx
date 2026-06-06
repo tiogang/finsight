@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { LayoutDashboard, TrendingUp, Search, FileText, Bell, Star, Eye, Settings, Brain } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, Search, FileText, Bell, Star, Eye, Settings, Brain, BarChart2 } from 'lucide-react'
 import Metrics from './components/Metrics'
 import Charts from './components/Charts'
 import StockTable from './components/StockTable'
@@ -9,17 +9,20 @@ import Alertes from './components/Alertes'
 import Marches from './components/Marches'
 import Analyser from './components/Analyser'
 import Landing from './pages/Landing'
+import Comparaison from './components/Comparaison'
 import './App.css'
 
 const navItems = [
   { icon: LayoutDashboard, label: 'Dashboard', section: null },
   { icon: TrendingUp, label: 'Marchés', section: null },
   { icon: Search, label: 'Analyser', section: null },
+  { icon: BarChart2, label: 'Comparer', section: null },
   { icon: FileText, label: 'Rapports IA', section: null },
   { icon: Bell, label: 'Alertes', section: null },
   { icon: Star, label: 'Favoris', section: 'Portefeuille' },
   { icon: Eye, label: 'Watchlist', section: null },
   { icon: Settings, label: 'Paramètres', section: 'Compte' },
+ 
 ]
 
 function Sidebar({ active, setActive }) {
@@ -115,6 +118,8 @@ return (
           <Marches />
         ) : active === 'Analyser' ? (
           <Analyser />
+        ) : active === 'Comparer' ? (
+          <Comparaison />
         ) : (
           <>
             <h2 style={{ color: '#1a1d2e', marginBottom: '1.5rem', fontWeight: '500' }}>
