@@ -8,6 +8,7 @@ import Rapports from './components/Rapports'
 import Alertes from './components/Alertes'
 import Marches from './components/Marches'
 import Analyser from './components/Analyser'
+import Landing from './pages/Landing'
 import './App.css'
 
 const navItems = [
@@ -92,37 +93,43 @@ function Topbar() {
 function App() {
   const [active, setActive] = useState('Dashboard')
   const [selectedStock, setSelectedStock] = useState(null)
+  const [showLanding, setShowLanding] = useState(true)
 
-  return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
-      <Sidebar active={active} setActive={setActive} />
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-        <Topbar />
-        <div style={{ flex: 1, overflow: 'auto', padding: '1.5rem', background: '#f8f9fb' }}>
-          {selectedStock ? (
-            <StockDetail name={selectedStock} onBack={() => setSelectedStock(null)} />
-          ) : active === 'Rapports IA' ? (
-            <Rapports />
-          ) : active === 'Alertes' ? (
-            <Alertes />
-          ) : active === 'Marchés' ? (
-            <Marches />
-          ) : active === 'Analyser' ? (
-            <Analyser />
-          ) : (
-            <>
-              <h2 style={{ color: '#1a1d2e', marginBottom: '1.5rem', fontWeight: '500' }}>
-                Bonjour 👋 — Vue d'ensemble
-              </h2>
-              <Metrics />
-              <Charts />
-              <StockTable onSelect={setSelectedStock} />
-            </>
-          )}
-        </div>
+  if (showLanding) {
+  return <Landing onEnter={() => setShowLanding(false)} />
+}
+
+return (
+  <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
+    <Sidebar active={active} setActive={setActive} />
+    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+      <Topbar />
+      <div style={{ flex: 1, overflow: 'auto', padding: '1.5rem', background: '#f8f9fb' }}>
+        {selectedStock ? (
+          <StockDetail name={selectedStock} onBack={() => setSelectedStock(null)} />
+        ) : active === 'Rapports IA' ? (
+          <Rapports />
+        ) : active === 'Alertes' ? (
+          <Alertes />
+        ) : active === 'Marchés' ? (
+          <Marches />
+        ) : active === 'Analyser' ? (
+          <Analyser />
+        ) : (
+          <>
+            <h2 style={{ color: '#1a1d2e', marginBottom: '1.5rem', fontWeight: '500' }}>
+              Bonjour 👋 — Vue d'ensemble
+            </h2>
+            <Metrics />
+            <Charts />
+            <StockTable onSelect={setSelectedStock} />
+          </>
+        )}
       </div>
     </div>
-  )
+  </div>
+)
+
 }
 
 export default App
